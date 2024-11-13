@@ -4,7 +4,12 @@ const BS = {
   stage: [],
   redGlobe: new Map(),
   buldGlobe: new Map(),
+  result:'',
   init() {
+    /*
+    *初始化结果
+    */
+    this.result = ''
     /**
      * 获取数据
      */
@@ -70,7 +75,8 @@ const BS = {
         produce.push(value)
       }
     }
-    console.log(produce.join(' '))
+    this.result = this.result + produce.join(' ') + '\n\t'
+    //console.log(produce.join(' '))
   },
   probability(globe) {
     for (let key of globe.keys()) {
@@ -118,6 +124,7 @@ const BS = {
     for (let i = 0; i < index; i++) {
       this.getOrdinar()
     }
+    console.log(this.result)
   }
 }
 BS.ticket(5)
